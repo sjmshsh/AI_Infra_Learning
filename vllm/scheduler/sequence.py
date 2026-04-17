@@ -1,7 +1,7 @@
 from copy import copy
 from enum import Enum, auto
 from itertools import count
-from utils import SamplingParams
+from vllm.scheduler.utils import SamplingParams
 
 
 class SequenceStatus(Enum):
@@ -20,7 +20,7 @@ class Sequence:
         self.last_token = token_ids[-1] # 缓存最后一个生成的token，方便在采样的时候快速获取，无需每次都访问列表末尾
         self.num_tokens = len(self.token_ids) # 总token
         self.num_prompt_tokens = len(token_ids) # 提示词部分的token
-        self.num_cached_tokens = 0
+        self.num_cached_tokens = 0 # 已经缓存在KV缓存中的token数量
         self.block_table = [] # 一个列表，存储了这个序列的kvcache在物理显存中的页索引，这使得非连续的内存块可以被逻辑上组织称一个完整的序列
         self.temperature = sampling_params.temperature
         self.max_tokens = sampling_params.max_tokens
