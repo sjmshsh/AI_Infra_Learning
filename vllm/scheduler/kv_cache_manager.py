@@ -1,7 +1,7 @@
 from collections import deque
 import xxhash
 import numpy as np 
-from scheduler.sequence import Sequence
+from vllm.scheduler.sequence import Sequence
 
 class Block:
     def __init__(self, block_id):

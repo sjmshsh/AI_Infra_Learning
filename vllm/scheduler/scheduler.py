@@ -1,8 +1,8 @@
 from collections import deque
-from scheduler.sequence import Sequence
-from scheduler.sequence import SequenceStatus       
-from scheduler.kv_cache_manager import BlockManager
-from scheduler.utils import Config
+from vllm.scheduler.sequence import Sequence
+from vllm.scheduler.sequence import SequenceStatus
+from vllm.scheduler.kv_cache_manager import BlockManager
+from vllm.scheduler.utils import Config
 
 class Scheduler:
 
