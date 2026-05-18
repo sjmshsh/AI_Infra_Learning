@@ -1,0 +1,3 @@
+[submodule "swizzle"]
+	path = swizzle
+	url = https://github.com/Chtholly-Boss/swizzle.git
